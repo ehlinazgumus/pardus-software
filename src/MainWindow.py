@@ -4789,7 +4789,7 @@ class MainWindow(object):
                 Notify.uninit()
 
             if message_summary == "" and message_body == "":
-                Notify.init(self.inprogress_app_name)
+                Notify.init(_("Pardus Software Center"))
                 if self.isinstalled:
                     notification = Notify.Notification.new("{} {}".format(
                         self.get_pretty_name_from_app_name(self.inprogress_app_name),_("Updated") if self.isupgrade else _("Removed")))
@@ -4804,7 +4804,7 @@ class MainWindow(object):
                 except Exception as e:
                     self.Logger.exception("{}".format(e))
             else:
-                Notify.init(message_summary)
+                Notify.init(_("Pardus Software Center"))
                 notification = Notify.Notification.new(message_summary, message_body, "pardus-software")
             notification.show()
         except Exception as e:
